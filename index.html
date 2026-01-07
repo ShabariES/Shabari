@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shabari E S | Web Developer & Designer</title>
+    <meta name="description"
+        content="Professional portfolio of Shabari E S - Web Developer, Designer, and Freelancer. Helping brands grow with modern web solutions.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Font Awesome for Official Brand Logos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+
+<body>
+    <style>
+        :root {
+    --bg: #ffffff;
+    --text: #000000;
+    --text-muted: #555555;
+    --accent: #000000;
+    --light-gray: #f9f9f9;
+    --border: #e0e0e0;
+    --primary: #000000;
+    --white: #ffffff;
+    --container-width: 1200px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+.logo {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section {
+    padding: 100px 0;
+}
+
+.bg-light {
+    background-color: var(--light-gray);
+}
+
+.bg-dark {
+    background-color: #0c0c0c;
+}
+
+.text-white {
+    color: var(--white);
+}
+
+.w-100 {
+    width: 100%;
+}
+
+/* Header & Nav */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid var(--border);
+}
+
+.nav {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    color: #666;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.nav-links a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.nav-links a:hover {
+    color: var(--text);
+}
+
+.btn-nav {
+    background: var(--primary);
+    color: var(--white) !important;
+    padding: 0.6rem 1.5rem;
+    border-radius: 4px;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    transition: var(--transition);
+    border: none;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+    background: var(--light-gray);
+    transform: translateY(-2px);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero-tagline {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.hero-title span {
+    color: #888;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.mouse {
+    width: 24px;
+    height: 40px;
+    border: 2px solid var(--border);
+    border-radius: 20px;
+    position: relative;
+}
+
+.mouse::after {
+    content: '';
+    width: 4px;
+    height: 8px;
+    background: var(--text);
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    border-radius: 2px;
+    animation: scroll 2s infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(15px);
+        opacity: 0;
+    }
+}
+
+/* Sections Common */
+.section-header {
+    margin-bottom: 4rem;
+}
+
+.section-tag {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.2;
+}
+
+/* About Section */
+.about-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-image {
+    position: relative;
+}
+
+.profile-img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    filter: grayscale(100%);
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.profile-img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.02);
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.experience-stats {
+    display: flex;
+    gap: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.stat h3 {
+    font-size: 2rem;
+}
+
+.stat p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.skill-item {
+    background: var(--light-gray);
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.skill-item:hover {
+    background: var(--text);
+    color: var(--white);
+    transform: scale(1.05);
+}
+
+/* Services */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.service-card {
+    background: var(--white);
+    padding: 3rem 2rem;
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.service-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 1.5rem;
+}
+
+.service-card h3 {
+    margin-bottom: 1rem;
+}
+
+.service-card p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.for-who {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #999;
+}
+
+/* Portfolio */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+}
+
+.project-card {
+    cursor: pointer;
+}
+
+.project-image {
+    overflow: hidden;
+    background: #f0f0f0;
+    margin-bottom: 1.5rem;
+    aspect-ratio: 16/10;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-info h3 {
+    margin-bottom: 0.5rem;
+}
+
+.project-info p {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.project-tags {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.project-tags span {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.8rem;
+    background: var(--light-gray);
+    border: 1px solid var(--border);
+}
+
+/* Why Choose Me */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.benefits-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.benefit-item {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.benefit-item i {
+    flex-shrink: 0;
+    color: #555;
+}
+
+.benefit-item h4 {
+    margin-bottom: 0.3rem;
+}
+
+.benefit-item p {
+    color: #888;
+}
+
+/* Contact */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+}
+
+.contact-info h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contact-methods {
+    margin-top: 2rem;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+}
+
+.social-links a:hover {
+    color: var(--text);
+}
+
+.social-links i {
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+    /* For Font Awesome */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 1rem;
+    border: 1px solid var(--border);
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--text);
+}
+
+/* Footer */
+.footer {
+    padding: 4rem 0;
+    border-top: 1px solid var(--border);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-links a {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.footer-social {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-social i {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    /* For Font Awesome */
+    color: var(--text-muted);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-social i:hover {
+    color: var(--text);
+}
+
+/* WhatsApp Float */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+    z-index: 1000;
+    transition: var(--transition);
+    animation: wa-pulse 2s infinite;
+}
+
+.whatsapp-float:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-float i {
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+@keyframes wa-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 991px) {
+
+    .services-grid,
+    .about-grid,
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        padding: 2rem;
+        border-bottom: 1px solid var(--border);
+        gap: 1.5rem;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero-btns {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .portfolio-grid,
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+    </style>
+    <!-- Header / Navigation -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="logo">SHABARI<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Work</a></li>
+                <li><a href="#contact" class="btn-nav">Hire Me</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <i data-lucide="menu"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero section">
+            <div class="container hero-content">
+                <h2 class="hero-tagline" data-aos="fade-up">Available for Freelance</h2>
+                <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
+                    Transforming Ideas Into <br>
+                    <span>Digital Reality.</span>
+                </h1>
+                <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                    I build premium, high-performance websites and digital experiences that help businesses stand out
+                    globally.
+                </p>
+                <div class="hero-btns" data-aos="fade-up" data-aos-delay="300">
+                    <a href="https://wa.me/916369035633" target="_blank" class="btn btn-primary">WhatsApp Me</a>
+                    <a href="#portfolio" class="btn btn-secondary">View My Work</a>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse"></div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about section container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">About Me</span>
+                <h2 class="section-title">Minimalist Design, <br>Meaningful Code</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-image" data-aos="fade-right">
+                    <img src="profile.jpg" alt="Shabari E S" class="profile-img">
+                </div>
+                <div class="about-text" data-aos="fade-left">
+                    <p>I am <strong>Shabari E S</strong>, a passionate Web Developer and Designer. As a freelancer and
+                        student, I bridge the gap between creative design and technical execution.</p>
+                    <p>My approach is focused on clarity and functionality. I believe a website should not only look
+                        stunning but should also provide a seamless user experience that converts visitors into
+                        customers.</p>
+                    <div class="experience-stats">
+                        <div class="stat">
+                            <h3>2+</h3>
+                            <p>Projects Completed</p>
+                        </div>
+                        <div class="stat">
+                            <h3>100%</h3>
+                            <p>Client Satisfaction</p>
+                        </div>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-item">Frontend Development</div>
+                        <div class="skill-item">UI/UX Design</div>
+                        <div class="skill-item">Responsive Architecture</div>
+                        <div class="skill-item">Brand Strategy</div>
+                        <div class="skill-item">Performance Optimization</div>
+                        <div class="skill-item">Custom Solutions</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services section bg-light">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-tag">Services</span>
+                    <h2 class="section-title">How I Can Help You</h2>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+                        <i data-lucide="layout" class="service-icon"></i>
+                        <h3>Web Development</h3>
+                        <p>Modern, fast, and secure websites built with the latest technologies to ensure peak
+                            performance.</p>
+                        <span class="for-who">Best for: Startups & Businesses</span>
+                    </div>
+                    <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+                        <i data-lucide="framer" class="service-icon"></i>
+                        <h3>UI/UX Design</h3>
+                        <p>User-centric designs that are visually captivating and intuitive to navigate across all
+                            devices.</p>
+                        <span class="for-who">Best for: App ideas & Redesigns</span>
+                    </div>
+                    <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+                        <i data-lucide="globe" class="service-icon"></i>
+                        <h3>Domain & Hosting</h3>
+                        <p>Professional setup and management of your digital home via GoDaddy, ensuring 99.9% uptime and
+                            security.</p>
+                        <span class="for-who">Best for: New Websites</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio section container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Portfolio</span>
+                <h2 class="section-title">Selected Works</h2>
+            </div>
+            <div class="portfolio-grid">
+                <!-- Project 1: Edwyna -->
+                <a href="https://edwyna.org/" target="_blank" class="project-card" data-aos="fade-up">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&q=80&w=800"
+                            alt="Edwyna Event Management">
+                    </div>
+                    <div class="project-info">
+                        <h3>Edwyna</h3>
+                        <p>A full-stack event management platform built for scalability. First freelance collaboration
+                            with Vimal Raj.</p>
+                        <div class="project-tags">
+                            <span>HTML/CSS/JS</span>
+                            <span>PostgreSQL</span>
+                            <span>Supabase</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 2: Trichy Sachu Cabs -->
+                <a href="https://trichysachucabs.com/" target="_blank" class="project-card" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1593950315186-76a92975b60c?auto=format&fit=crop&q=80&w=800"
+                            alt="Trichy Sachu Cabs">
+                    </div>
+                    <div class="project-info">
+                        <h3>Trichy Sachu Cabs</h3>
+                        <p>High-conversion taxi booking platform with a focus on local accessibility and performance.
+                        </p>
+                        <div class="project-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 3: UI/UX Portfolio -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image">
+                        <img src="ui-design.png" alt="UI/UX Design Portfolio - MRM Project">
+                    </div>
+                    <div class="project-info">
+                        <h3>UI/UX Design</h3>
+                        <p>Premium digital interfaces and interactive prototypes designed to elevate user experiences.
+                            Specialized in complex dashboard architectures.</p>
+                        <div class="project-tags">
+                            <span>Figma</span>
+                            <span>Framer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Me -->
+        <section class="why-me section bg-dark text-white">
+            <div class="container grid-2">
+                <div data-aos="fade-right">
+                    <h2 class="section-title text-white">Why Work With Me?</h2>
+                    <p>I don't just build websites; I build relationships and results.</p>
+                </div>
+                <div class="benefits-list">
+                    <div class="benefit-item" data-aos="fade-left" data-aos-delay="100">
+                        <i data-lucide="check-circle"></i>
+                        <div>
+                            <h4>Global Quality</h4>
+                            <p>Industry-standard code and design aesthetics.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item" data-aos="fade-left" data-aos-delay="200">
+                        <i data-lucide="message-square"></i>
+                        <div>
+                            <h4>Clear Communication</h4>
+                            <p>Regular updates and direct line of contact.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item" data-aos="fade-left" data-aos-delay="300">
+                        <i data-lucide="clock"></i>
+                        <div>
+                            <h4>On-Time Delivery</h4>
+                            <p>Strict adherence to deadlines without quality loss.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact section container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Contact</span>
+                <h2 class="section-title">Let's Discuss Your Project</h2>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info" data-aos="fade-right">
+                    <h3>Get in touch</h3>
+                    <p>Have a project in mind or just want to say hi? Feel free to reach out.</p>
+                    <div class="contact-methods">
+                        <a href="mailto:shabaries2866@gmail.com" class="contact-link">
+                            <i data-lucide="mail"></i>
+                            shabaries2866@gmail.com
+                        </a>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/shabari-shanmugam-1302522a6/" target="_blank"><i
+                                    data-lucide="linkedin"></i></a>
+                            <a href="https://github.com/ShabariES/" target="_blank"><i data-lucide="github"></i></a>
+                            <a href="https://wa.me/916369035633" target="_blank"><i
+                                    class="fa-brands fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-container" data-aos="fade-left">
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..."
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-logo">SHABARI<span>.</span></div>
+            <p>&copy; 2026 Shabari E S. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#portfolio">Work</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/shabari-shanmugam-1302522a6/" target="_blank"><i
+                        data-lucide="linkedin"></i></a>
+                <a href="https://github.com/ShabariES/" target="_blank"><i data-lucide="github"></i></a>
+                <a href="https://wa.me/916369035633" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/916369035633" class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Initialize AOS (Animate On Scroll)
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    }
+
+    // Mobile Menu Toggle
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (mobileMenu) {
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileMenu.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.setAttribute('data-lucide', 'x');
+            } else {
+                icon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
+        });
+    }
+
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('.header');
+        if (window.scrollY > 50) {
+            header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.05)';
+            header.style.background = 'rgba(255, 255, 255, 0.95)';
+        } else {
+            header.style.boxShadow = 'none';
+            header.style.background = 'rgba(255, 255, 255, 0.9)';
+        }
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                // Close mobile menu if open
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    const icon = mobileMenu.querySelector('i');
+                    icon.setAttribute('data-lucide', 'menu');
+                    lucide.createIcons();
+                }
+
+                window.scrollTo({
+                    top: target.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Contact Form Logic (mailto integration)
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            const subject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+
+            window.location.href = `mailto:shabaries2866@gmail.com?subject=${subject}&body=${body}`;
+
+            // Optional: reset form after a short delay
+            setTimeout(() => contactForm.reset(), 500);
+        });
+    }
+});
+
+    </script>
+</body>
+
+</html>
