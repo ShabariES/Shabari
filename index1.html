@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jitter Animation</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        #lottie-animation {
+            width: 100%;
+            height: 900px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 900px;
+            font-size: 18px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Jitter Animation</h1>
+        <div id="lottie-animation">
+            <div class="loading">Loading animation...</div>
+        </div>
+    </div>
+
+    <script>
+        const animationContainer = document.getElementById('lottie-animation');
+        const loadingElement = document.querySelector('.loading');
+        
+        const animation = lottie.loadAnimation({
+            container: animationContainer,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'Frame-1---Playful.json',
+            rendererSettings: {
+                preserveAspectRatio: 'xMidYMid meet'
+            }
+        });
+        
+        // Remove loading text when animation loads
+        animation.addEventListener('DOMLoaded', () => {
+            if (loadingElement) {
+                loadingElement.style.display = 'none';
+            }
+        });
+        
+        // Error handling
+        animation.addEventListener('error', (error) => {
+            console.error('Lottie animation error:', error);
+            if (loadingElement) {
+                loadingElement.innerHTML = 'Error loading animation. Please check:<br>' +
+                                          '1. JSON file exists in correct location<br>' +
+                                          '2. JSON file is valid<br>' +
+                                          '3. You are using a local server';
+            }
+        });
+    </script>
+</body>
+</html>
