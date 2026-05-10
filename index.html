@@ -256,6 +256,41 @@
             transform: translateY(-2px);
         }
 
+        /* Resume Button - Hero */
+        .btn-resume {
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+            color: var(--primary);
+            border: 1.5px solid var(--primary);
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .btn-resume:hover {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(216, 67, 21, 0.2);
+        }
+
+        /* Resume Button - Nav */
+        .btn-resume-nav {
+            font-size: 0.95rem;
+            font-weight: 600 !important;
+            color: var(--primary) !important;
+            border: 1.5px solid var(--primary);
+            padding: 0.4rem 1.1rem;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .btn-resume-nav:hover {
+            background: var(--primary);
+            color: var(--white) !important;
+        }
+
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -1295,6 +1330,7 @@
                 <li><a href="#education">Education</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#portfolio">Work</a></li>
+                <li><a href="./Shabari E S_20260510_170153_0000.pdf" target="_blank" class="btn-resume-nav">Resume</a></li>
                 <li><a href="#contact" class="btn-nav">Contact Me</a></li>
             </ul>
             <div class="menu-toggle" id="mobile-menu">
@@ -1317,6 +1353,7 @@
                 </p>
                 <div class="hero-btns" data-aos="fade-up" data-aos-delay="300">
                     <a href="https://wa.me/916369035633" target="_blank" class="btn btn-primary">WhatsApp Me</a>
+                    <a href="./Shabari E S_20260510_170153_0000.pdf" target="_blank" class="btn btn-resume">📄 View Resume</a>
                     <a href="#portfolio" class="btn btn-secondary">View My Work</a>
                 </div>
             </div>
