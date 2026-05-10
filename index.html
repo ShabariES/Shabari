@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -790,83 +790,123 @@
             border: 1px solid rgba(230, 81, 0, 0.1);
         }
 
-        /* Process Section */
-        .process-timeline {
+        /* Tools Arsenal Section */
+        .arsenal-section {
+            background: linear-gradient(135deg, #fff3e0 0%, #fff8f0 100%);
+        }
+
+        .arsenal-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 3.5rem;
+        }
+
+        .tool-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 224, 178, 0.8);
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
             display: flex;
             flex-direction: column;
-            gap: 2rem;
-            margin-top: 4rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            align-items: center;
+            gap: 1rem;
+            text-align: center;
+            cursor: default;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
 
-        .process-step {
-            position: relative;
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(15px);
-            padding: 2.5rem 3rem;
-            border-radius: 24px;
-            border: 1px solid var(--border);
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 0%, rgba(216, 67, 21, 0.06) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 24px 48px rgba(216, 67, 21, 0.12);
+            background: #fff;
+        }
+
+        .tool-card:hover::before {
+            opacity: 1;
+        }
+
+        .tool-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
-            gap: 2.5rem;
-            transition: var(--transition);
-            overflow: hidden;
-            z-index: 1;
+            justify-content: center;
+            font-size: 1.8rem;
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .process-step:hover {
-            transform: translateY(-5px) translateX(10px);
-            border-color: var(--primary);
-            box-shadow: 0 20px 40px rgba(216, 67, 21, 0.08);
-            background: var(--white);
+        .tool-card:hover .tool-icon {
+            transform: scale(1.15) rotate(-4deg);
         }
 
-        .step-number {
+        .tool-name {
             font-family: 'Outfit', sans-serif;
-            font-size: 5rem;
-            font-weight: 800;
-            line-height: 1;
-            color: rgba(216, 67, 21, 0.1);
-            transition: var(--transition);
-        }
-
-        .process-step:hover .step-number {
-            color: rgba(216, 67, 21, 0.2);
-            transform: scale(1.1);
-        }
-
-        .step-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .step-content h4 {
-            font-size: 1.5rem;
+            font-size: 1rem;
+            font-weight: 700;
             color: var(--text);
-            margin-bottom: 0.8rem;
         }
 
-        .step-content p {
-            font-size: 1.05rem;
+        .tool-type {
+            font-size: 0.78rem;
             color: var(--text-muted);
-            margin: 0;
-            line-height: 1.6;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Featured tool cards span wider */
+        .tool-card.featured {
+            grid-column: span 2;
+            flex-direction: row;
+            text-align: left;
+            padding: 2rem 2.5rem;
+            gap: 1.8rem;
+        }
+
+        .tool-card.featured .tool-icon {
+            flex-shrink: 0;
+            width: 64px;
+            height: 64px;
+            font-size: 2.2rem;
+        }
+
+        .tool-card.featured .tool-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-top: 0.3rem;
         }
 
         @media (max-width: 768px) {
-            .process-step {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 2rem;
+            .arsenal-grid {
+                grid-template-columns: repeat(2, 1fr);
                 gap: 1rem;
             }
-            .step-number {
-                font-size: 4rem;
+            .tool-card.featured {
+                grid-column: span 2;
+                flex-direction: column;
+                text-align: center;
+                padding: 1.8rem 1.2rem;
             }
-            .process-step:hover {
-                transform: translateY(-5px);
+        }
+
+        @media (max-width: 480px) {
+            .arsenal-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -1521,44 +1561,65 @@
             </div>
         </section>
 
-        <!-- Process Section -->
-        <section class="process section bg-dark">
+                <!-- Tools Arsenal Section -->
+        <section class="arsenal-section section">
             <div class="container">
-                <div class="section-header text-center" style="max-width: 700px; margin-left: auto; margin-right: auto;"
-                    data-aos="fade-up">
-                    <span class="section-tag">Workflow</span>
-                    <h2 class="section-title">My Creative Process</h2>
-                    <p style="color: var(--text-muted); margin-top: 1rem;">From initial concept to flawless execution, here is how I bring ideas to life.</p>
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-tag">My Toolkit</span>
+                    <h2 class="section-title">Tools &amp; Arsenal</h2>
                 </div>
-
-                <div class="process-timeline">
-                    <div class="process-step" data-aos="fade-up">
-                        <div class="step-number">01</div>
-                        <div class="step-content">
-                            <h4>Discovery & Strategy</h4>
-                            <p>Deep-diving into user needs, business goals, and competitive landscapes to establish a solid design foundation.</p>
+                <div class="arsenal-grid">
+                    <div class="tool-card featured" data-aos="fade-up">
+                        <div class="tool-icon" style="background: linear-gradient(135deg, #ff7262, #a259ff); color: #fff;">
+                            <i class="fa-brands fa-figma"></i>
+                        </div>
+                        <div>
+                            <div class="tool-name">Figma</div>
+                            <div class="tool-type">Primary Design Tool</div>
+                            <div class="tool-desc">My core tool for building complete design systems, high-fidelity prototypes, and component libraries.</div>
                         </div>
                     </div>
-                    <div class="process-step" data-aos="fade-up" data-aos-delay="100">
-                        <div class="step-number">02</div>
-                        <div class="step-content">
-                            <h4>UI/UX Prototyping</h4>
-                            <p>Crafting intuitive user journeys and high-fidelity interactive prototypes in Figma and Framer to visualize the final product.</p>
+                    <div class="tool-card featured" data-aos="fade-up" data-aos-delay="100">
+                        <div class="tool-icon" style="background: linear-gradient(135deg, #1a1a2e, #16213e); color: #61dafb;">
+                            <i class="fa-brands fa-react"></i>
+                        </div>
+                        <div>
+                            <div class="tool-name">React.js</div>
+                            <div class="tool-type">Frontend Framework</div>
+                            <div class="tool-desc">Building dynamic, component-driven UIs and translating Figma designs into pixel-perfect web apps.</div>
                         </div>
                     </div>
-                    <div class="process-step" data-aos="fade-up" data-aos-delay="200">
-                        <div class="step-number">03</div>
-                        <div class="step-content">
-                            <h4>Full-Stack Engineering</h4>
-                            <p>Translating designs into robust, scalable, and pixel-perfect code using modern web technologies like React and Supabase.</p>
-                        </div>
+                    <div class="tool-card" data-aos="fade-up" data-aos-delay="150">
+                        <div class="tool-icon" style="background: #f0fff4; color: #68a063;"><i class="fa-brands fa-node-js"></i></div>
+                        <div class="tool-name">Node.js</div><div class="tool-type">Backend</div>
                     </div>
-                    <div class="process-step" data-aos="fade-up" data-aos-delay="300">
-                        <div class="step-number">04</div>
-                        <div class="step-content">
-                            <h4>Launch & Iteration</h4>
-                            <p>Deploying the application, rigorously testing performance, and refining features based on real-world user feedback.</p>
-                        </div>
+                    <div class="tool-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="tool-icon" style="background: #eff6ff; color: #3776ab;"><i class="fa-brands fa-python"></i></div>
+                        <div class="tool-name">Python</div><div class="tool-type">Scripting</div>
+                    </div>
+                    <div class="tool-card" data-aos="fade-up" data-aos-delay="250">
+                        <div class="tool-icon" style="background: #f8fafc; color: #1a1a1a;"><i class="fa-brands fa-github"></i></div>
+                        <div class="tool-name">GitHub</div><div class="tool-type">Version Control</div>
+                    </div>
+                    <div class="tool-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="tool-icon" style="background: #fff8f0; color: #e44d26;"><i class="fa-brands fa-html5"></i></div>
+                        <div class="tool-name">HTML5 / CSS3</div><div class="tool-type">Foundation</div>
+                    </div>
+                    <div class="tool-card" data-aos="fade-up" data-aos-delay="350">
+                        <div class="tool-icon" style="background: #fefce8; color: #b45309;"><i class="fa-brands fa-js"></i></div>
+                        <div class="tool-name">JavaScript</div><div class="tool-type">Core Language</div>
+                    </div>
+                    <div class="tool-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="tool-icon" style="background: #f0fdf4; color: #4db33d;"><i class="fa-solid fa-database"></i></div>
+                        <div class="tool-name">MongoDB</div><div class="tool-type">Database</div>
+                    </div>
+                    <div class="tool-card" data-aos="fade-up" data-aos-delay="450">
+                        <div class="tool-icon" style="background: #f0f9ff; color: #0077b5;"><i class="fa-brands fa-linkedin"></i></div>
+                        <div class="tool-name">LinkedIn</div><div class="tool-type">Networking</div>
+                    </div>
+                    <div class="tool-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="tool-icon" style="background: #f0fdf4; color: #25d366;"><i class="fa-brands fa-whatsapp"></i></div>
+                        <div class="tool-name">WhatsApp</div><div class="tool-type">Communication</div>
                     </div>
                 </div>
             </div>
