@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shabari E S | Full Stack Developer & Software Engineer</title>
+    <title>Shabari E S | UI/UX Designer & Full Stack Developer</title>
     <meta name="description"
-        content="Professional portfolio of Shabari E S - Full Stack Developer, Designer, and Software Engineer. Specialized in MERN Stack, Supabase, and DevOps.">
+        content="Professional portfolio of Shabari E S - UI/UX Designer and Full Stack Developer. Specialized in Figma, Framer, and building premium digital experiences.">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -790,36 +790,64 @@
             border: 1px solid rgba(230, 81, 0, 0.1);
         }
 
-        /* Why Choose Me */
-        .grid-2 {
+        /* Why Choose Me - Redesigned */
+        .why-me-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
         }
 
-        .benefits-list {
+        .why-me-card {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            padding: 3rem 2rem;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            text-align: center;
             display: flex;
             flex-direction: column;
-            gap: 2rem;
-        }
-
-        .benefit-item {
-            display: flex;
+            align-items: center;
             gap: 1.5rem;
         }
 
-        .benefit-item i {
-            flex-shrink: 0;
-            color: #555;
+        .why-me-card:hover {
+            transform: translateY(-10px);
+            background: var(--white);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(216, 67, 21, 0.1);
         }
 
-        .benefit-item h4 {
-            margin-bottom: 0.3rem;
+        .why-icon-box {
+            width: 60px;
+            height: 60px;
+            background: rgba(216, 67, 21, 0.1);
+            color: var(--primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
         }
 
-        .benefit-item p {
-            color: #888;
+        .why-me-card:hover .why-icon-box {
+            background: var(--primary);
+            color: var(--white);
+            transform: rotate(-5deg) scale(1.1);
+        }
+
+        .why-me-card h4 {
+            font-size: 1.3rem;
+            color: var(--text);
+            margin: 0;
+        }
+
+        .why-me-card p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin: 0;
         }
 
         /* Contact */
@@ -873,6 +901,7 @@
             justify-content: center;
         }
 
+        /* Contact Form */
         .contact-form {
             display: flex;
             flex-direction: column;
@@ -901,11 +930,13 @@
             font-size: 1rem;
             outline: none;
             transition: var(--transition);
+            border-radius: 8px;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
-            border-color: var(--text);
+            border-color: var(--primary);
+            background: var(--white);
         }
 
         /* Footer */
@@ -1035,7 +1066,7 @@
                 justify-content: center;
                 align-items: center;
                 padding: 2rem;
-                gap: 2.5rem;
+                gap: 1.5rem;
                 z-index: 1050;
                 transition: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
                 visibility: hidden;
@@ -1083,16 +1114,17 @@
             }
 
             .nav-links a {
-                font-size: 2rem;
-                font-weight: 700;
+                font-size: 1.5rem;
+                font-weight: 600;
                 color: var(--text) !important;
                 font-family: 'Outfit', sans-serif;
             }
 
             .btn-nav {
                 width: auto;
-                min-width: 200px;
-                font-size: 1.1rem !important;
+                min-width: 180px;
+                padding: 0.8rem 2rem !important;
+                font-size: 1rem !important;
                 display: flex;
                 justify-content: center;
             }
@@ -1214,13 +1246,13 @@
         <!-- Hero Section -->
         <section id="home" class="hero section">
             <div class="container hero-content">
-                <h2 class="hero-tagline" data-aos="fade-up">Full Stack Developer & Software Engineer</h2>
+                <h2 class="hero-tagline" data-aos="fade-up">UI/UX Designer & Full Stack Developer</h2>
                 <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
-                    Architecting Scalable <span>Digital Solutions.</span>
+                    Designing <span>Impactful</span> Digital Experiences.
                 </h1>
                 <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
-                    I build high-performance, full-stack applications and premium digital experiences using modern
-                    technologies like the MERN Stack, Supabase, and Python.
+                    I specialize in high-fidelity prototyping with Figma and Framer, bridging the gap between
+                    complex design systems and seamless full-stack implementations.
                 </p>
                 <div class="hero-btns" data-aos="fade-up" data-aos-delay="300">
                     <a href="https://wa.me/916369035633" target="_blank" class="btn btn-primary">WhatsApp Me</a>
@@ -1243,13 +1275,13 @@
                     <img src="./charlie.jpeg" alt="Shabari E S" class="profile-img">
                 </div>
                 <div class="about-text" data-aos="fade-left">
-                    <p>I am <strong>Shabari E S</strong>, a dedicated Full Stack Developer and Software Engineer. I
-                        specialize
-                        in building robust, scalable applications that solve real-world problems through clean code and
-                        user-centric design.</p>
-                    <p>With a strong foundation in the MERN Stack and cloud technologies like Supabase, I focus on
-                        developing high-performance systems that are both efficient and easy to maintain. My goal is to
-                        create digital products that provide exceptional value and seamless user experiences.</p>
+                    <p>I am <strong>Shabari E S</strong>, a UI/UX Designer and Full Stack Developer. I
+                        specialize in crafting premium digital interfaces and interactive prototypes that
+                        solve real-world problems through design-led innovation.</p>
+                    <p>Expert in <strong>Figma</strong> and <strong>Framer</strong>, I focus on building design systems
+                        and high-fidelity prototypes that transition seamlessly into robust, scalable applications.
+                        My approach combines aesthetic excellence with technical precision to deliver exceptional user
+                        value.</p>
                     <div class="experience-stats">
                         <div class="stat">
                             <h3>10+</h3>
@@ -1313,6 +1345,20 @@
                 <div class="skills-wrapper">
                     <div class="skill-category" data-aos="fade-up">
                         <div class="category-header">
+                            <i data-lucide="palette" class="category-icon"></i>
+                            <h3>Design & Prototyping</h3>
+                        </div>
+                        <div class="skill-list">
+                            <div class="skill-tag">Figma</div>
+                            <div class="skill-tag">Framer</div>
+                            <div class="skill-tag">UI/UX Design</div>
+                            <div class="skill-tag">Design Systems</div>
+                            <div class="skill-tag">Prototyping</div>
+                            <div class="skill-tag">Responsive Design</div>
+                        </div>
+                    </div>
+                    <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                        <div class="category-header">
                             <i data-lucide="layout" class="category-icon"></i>
                             <h3>Frontend Development</h3>
                         </div>
@@ -1321,42 +1367,34 @@
                             <div class="skill-tag">CSS3</div>
                             <div class="skill-tag">JavaScript (ES6+)</div>
                             <div class="skill-tag">React.js</div>
-                        </div>
-                    </div>
-                    <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
-                        <div class="category-header">
-                            <i data-lucide="server" class="category-icon"></i>
-                            <h3>Backend & Frameworks</h3>
-                        </div>
-                        <div class="skill-list">
-                            <div class="skill-tag">MERN Stack</div>
-                            <div class="skill-tag">Node.js</div>
-                            <div class="skill-tag">Express.js</div>
-                            <div class="skill-tag">Python</div>
+                            <div class="skill-tag">Tailwind CSS</div>
                         </div>
                     </div>
                     <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
                         <div class="category-header">
-                            <i data-lucide="database" class="category-icon"></i>
-                            <h3>Database & Cloud</h3>
+                            <i data-lucide="server" class="category-icon"></i>
+                            <h3>Backend & Database</h3>
                         </div>
                         <div class="skill-list">
+                            <div class="skill-tag">Node.js</div>
+                            <div class="skill-tag">Express.js</div>
+                            <div class="skill-tag">Python</div>
                             <div class="skill-tag">MongoDB</div>
                             <div class="skill-tag">PostgreSQL</div>
-                            <div class="skill-tag">MySQL</div>
                             <div class="skill-tag">Supabase</div>
                         </div>
                     </div>
                     <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
                         <div class="category-header">
                             <i data-lucide="terminal" class="category-icon"></i>
-                            <h3>DevOps & Tools</h3>
+                            <h3>Tools & Deployment</h3>
                         </div>
                         <div class="skill-list">
-                            <div class="skill-tag">GitHub</div>
-                            <div class="skill-tag">DevOps</div>
+                            <div class="skill-tag">Git/GitHub</div>
+                            <div class="skill-tag">Framer Motion</div>
                             <div class="skill-tag">REST APIs</div>
-                            <div class="skill-tag">Cloud Hosting</div>
+                            <div class="skill-tag">Vercel/Netlify</div>
+                            <div class="skill-tag">Postman</div>
                         </div>
                     </div>
                 </div>
@@ -1370,55 +1408,92 @@
                 <h2 class="section-title">Selected Works</h2>
             </div>
             <div class="portfolio-grid">
-                <!-- Project 1: Edwyna -->
-                <a href="https://edwyna.org/" target="_blank" class="project-card" data-aos="fade-up">
+                <!-- Project 1: Zagrex FinTech -->
+                <a href="#" class="project-card" data-aos="fade-up">
+                    <div class="project-image">
+                        <img src="./ui1.jpg" alt="Zagrex FinTech Dashboard - Figma Design">
+                    </div>
+                    <div class="project-info">
+                        <h3>Zagrex FinTech Dashboard</h3>
+                        <p>A futuristic financial analytics platform focusing on data visualization and secure
+                            asset management. Designed with a high-fidelity dark aesthetic in Figma.</p>
+                        <div class="project-tags">
+                            <span>Figma</span>
+                            <span>FinTech</span>
+                            <span>Data Visualization</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 2: Employee Tracking System -->
+                <a href="#" class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image">
+                        <img src="./Screenshot 2026-05-10 121626.png"
+                            alt="Employee Tracking Intelligence - Figma Design">
+                    </div>
+                    <div class="project-info">
+                        <h3>Nexus Employee Tracking</h3>
+                        <p>Comprehensive HRM system designed for seamless employee monitoring, task lifecycle
+                            management, and administrative intelligence oversight.</p>
+                        <div class="project-tags">
+                            <span>Figma</span>
+                            <span>HRM System</span>
+                            <span>Product Design</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 3: Personal Branding Site -->
+                <a href="#" class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image">
+                        <img src="./ui2.jpg" alt="Personal Branding Landing Page - Framer Design">
+                    </div>
+                    <div class="project-info">
+                        <h3>Personal Branding Site</h3>
+                        <p>A minimalist and highly interactive portfolio design built in Framer to showcase
+                            personal branding, professional milestones, and motion design.</p>
+                        <div class="project-tags">
+                            <span>Framer</span>
+                            <span>Interactive</span>
+                            <span>Motion Design</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 4: Edwyna Design System -->
+                <a href="https://edwyna.org/" target="_blank" class="project-card" data-aos="fade-up"
+                    data-aos-delay="300">
                     <div class="project-image">
                         <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&q=80&w=800"
                             alt="Edwyna Event Management">
                     </div>
                     <div class="project-info">
-                        <h3>Edwyna</h3>
-                        <p>A full-stack event management platform built for scalability. Engineered the backend
-                            architecture and integrated real-time notifications.</p>
+                        <h3>Edwyna Design System</h3>
+                        <p>A full-stack event management platform with a custom design system. Engineered the
+                            visual identity and backend architecture for seamless user flow.</p>
                         <div class="project-tags">
-                            <span>HTML/CSS/JS</span>
-                            <span>PostgreSQL</span>
-                            <span>Supabase</span>
+                            <span>UI/UX</span>
+                            <span>Figma</span>
+                            <span>Full Stack</span>
                         </div>
                     </div>
                 </a>
 
-                <!-- Project 2: Trichy Sachu Cabs -->
+                <!-- Project 5: Sachu Cabs Interface -->
                 <a href="https://trichysachucabs.com/" target="_blank" class="project-card" data-aos="fade-up"
-                    data-aos-delay="100">
+                    data-aos-delay="400">
                     <div class="project-image">
                         <img src="https://images.unsplash.com/photo-1593950315186-76a92975b60c?auto=format&fit=crop&q=80&w=800"
                             alt="Trichy Sachu Cabs">
                     </div>
                     <div class="project-info">
-                        <h3>Trichy Sachu Cabs</h3>
-                        <p>High-conversion taxi booking platform with a focus on local accessibility and performance.
-                        </p>
+                        <h3>Sachu Cabs Interface</h3>
+                        <p>High-conversion taxi booking interface with a focus on local accessibility and
+                            modern aesthetic performance.</p>
                         <div class="project-tags">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Project 3: UI/UX Portfolio -->
-                <a href="#" class="project-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-image">
-                        <img src="./ui-design.png" alt="UI/UX Design Portfolio - MRM Project">
-                    </div>
-                    <div class="project-info">
-                        <h3>UI/UX Design</h3>
-                        <p>Premium digital interfaces and interactive prototypes designed to elevate user experiences.
-                            Specialized in complex dashboard architectures.</p>
-                        <div class="project-tags">
-                            <span>Figma</span>
-                            <span>Framer</span>
+                            <span>Framer Motion</span>
+                            <span>UI/UX</span>
+                            <span>Frontend</span>
                         </div>
                     </div>
                 </a>
@@ -1426,33 +1501,42 @@
         </section>
 
         <!-- Why Choose Me -->
-        <section class="why-me section bg-dark text-white">
-            <div class="container grid-2">
-                <div data-aos="fade-right">
-                    <h2 class="section-title text-white">Why Work With Me?</h2>
-                    <p>I don't just build websites; I build relationships and results.</p>
+        <section class="why-me section bg-dark">
+            <div class="container">
+                <div class="section-header text-center" style="max-width: 700px; margin-left: auto; margin-right: auto;"
+                    data-aos="fade-up">
+                    <span class="section-tag">Value Proposition</span>
+                    <h2 class="section-title">Why Work With Me?</h2>
+                    <p style="color: var(--text-muted); margin-top: 1rem;">I don't just build websites; I build
+                        relationships and results through design-led innovation and scalable engineering.</p>
                 </div>
-                <div class="benefits-list">
-                    <div class="benefit-item" data-aos="fade-left" data-aos-delay="100">
-                        <i data-lucide="check-circle"></i>
-                        <div>
-                            <h4>Global Quality</h4>
-                            <p>Industry-standard code and design aesthetics.</p>
+
+                <div class="why-me-grid">
+                    <div class="why-me-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="why-icon-box">
+                            <i data-lucide="palette"></i>
                         </div>
+                        <h4>Aesthetic Excellence</h4>
+                        <p>High-fidelity designs that follow modern UI/UX principles and global accessibility standards.
+                        </p>
                     </div>
-                    <div class="benefit-item" data-aos="fade-left" data-aos-delay="200">
-                        <i data-lucide="message-square"></i>
-                        <div>
-                            <h4>Clear Communication</h4>
-                            <p>Regular updates and direct line of contact.</p>
+
+                    <div class="why-me-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="why-icon-box">
+                            <i data-lucide="message-square"></i>
                         </div>
+                        <h4>Approachable Communication</h4>
+                        <p>Natural email conversations with no corporate jargon. I provide regular, clear updates and a
+                            direct line of contact.</p>
                     </div>
-                    <div class="benefit-item" data-aos="fade-left" data-aos-delay="300">
-                        <i data-lucide="clock"></i>
-                        <div>
-                            <h4>On-Time Delivery</h4>
-                            <p>Strict adherence to deadlines without quality loss.</p>
+
+                    <div class="why-me-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="why-icon-box">
+                            <i data-lucide="timer"></i>
                         </div>
+                        <h4>On-Time Delivery</h4>
+                        <p>Strict adherence to project deadlines without compromising on quality or performance metrics.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -1467,24 +1551,28 @@
             <div class="contact-wrapper">
                 <div class="contact-info" data-aos="fade-right">
                     <h3>Get in touch</h3>
-                    <p>Have a project in mind or just want to say hi? Feel free to reach out.</p>
+                    <p>Let's start a natural email conversation. Whether you have a project in mind or just want to say
+                        hi, feel free to reach out.</p>
                     <div class="contact-methods">
                         <a href="mailto:shabaries2866@gmail.com" class="contact-link">
                             <i data-lucide="mail"></i>
                             shabaries2866@gmail.com
                         </a>
                         <div class="social-links">
-                            <a href="https://www.linkedin.com/in/shabari-shanmugam-1302522a6/" target="_blank"><i
-                                    data-lucide="linkedin"></i></a>
-                            <a href="https://github.com/ShabariES/" target="_blank"><i data-lucide="github"></i></a>
-                            <a href="https://wa.me/916369035633" target="_blank"><i
-                                    class="fa-brands fa-whatsapp"></i></a>
+                            <a href="https://www.linkedin.com/in/shabari-shanmugam-1302522a6/" target="_blank">
+                                <i class="fa-brands fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/ShabariES/" target="_blank">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                            <a href="https://wa.me/916369035633" target="_blank">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="contact-form-container" data-aos="fade-left">
-                    <form id="contact-form" class="contact-form" action="https://formspree.io/f/shabaries2866@gmail.com"
-                        method="POST">
+                    <form id="contact-form" class="contact-form">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" placeholder="Your Name" required>
@@ -1499,7 +1587,7 @@
                                 placeholder="Tell me more about your requirements or just say hi..."
                                 required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                        <button type="submit" class="btn btn-primary w-100">Send via Email Client</button>
                     </form>
                 </div>
             </div>
@@ -1518,10 +1606,15 @@
                 <a href="#portfolio">Work</a>
             </div>
             <div class="footer-social">
-                <a href="https://www.linkedin.com/in/shabari-shanmugam-1302522a6/" target="_blank"><i
-                        data-lucide="linkedin"></i></a>
-                <a href="https://github.com/ShabariES/" target="_blank"><i data-lucide="github"></i></a>
-                <a href="https://wa.me/916369035633" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.linkedin.com/in/shabari-shanmugam-1302522a6/" target="_blank">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/ShabariES/" target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://wa.me/916369035633" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
             </div>
         </div>
     </footer>
@@ -1530,95 +1623,6 @@
     <a href="https://wa.me/916369035633" class="whatsapp-float" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Initialize Lucide Icons
-            lucide.createIcons();
-
-            // Initialize AOS (Animate On Scroll)
-            if (typeof AOS !== 'undefined') {
-                AOS.init({
-                    duration: 1000,
-                    once: true,
-                    offset: 100
-                });
-            }
-
-            // Initialize Vanta.js 3D NET Background - ORANGE THEME
-            if (typeof VANTA !== 'undefined') {
-                VANTA.NET({
-                    el: "#tech-bg",
-                    mouseControls: true,
-                    touchControls: true,
-                    gyroControls: false,
-                    minHeight: 200.00,
-                    minWidth: 200.00,
-                    scale: 1.00,
-                    scaleMobile: 1.00,
-                    color: 0xff8c00,
-                    backgroundColor: 0xfff3e0,
-                    points: 10.00,
-                    maxDistance: 20.00,
-                    spacing: 16.00,
-                    showDots: true
-                });
-            }
-
-            // Mobile Menu Toggle
-            const mobileMenu = document.getElementById('mobile-menu');
-            const navLinks = document.querySelector('.nav-links');
-
-            if (mobileMenu) {
-                mobileMenu.addEventListener('click', () => {
-                    navLinks.classList.toggle('active');
-                    const icon = mobileMenu.querySelector('i');
-                    if (navLinks.classList.contains('active')) {
-                        icon.setAttribute('data-lucide', 'x');
-                    } else {
-                        icon.setAttribute('data-lucide', 'menu');
-                    }
-                    lucide.createIcons();
-                });
-            }
-
-            // Header scroll effect
-            window.addEventListener('scroll', () => {
-                const header = document.querySelector('.header');
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        // Close mobile menu if open
-                        if (navLinks.classList.contains('active')) {
-                            navLinks.classList.remove('active');
-                            const icon = mobileMenu.querySelector('i');
-                            icon.setAttribute('data-lucide', 'menu');
-                            lucide.createIcons();
-                        }
-
-                        window.scrollTo({
-                            top: target.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-
-            // Contact Form Logic - Formspree will handle the submission via the HTML action attribute.
-            // If you want to use custom JS logic for Formspree (e.g. AJAX submission), you can add it here.
-        });
-
-    </script>
-    <!-- Three.js and Vanta.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
