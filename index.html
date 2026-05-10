@@ -1167,10 +1167,20 @@
             .services-grid,
             .portfolio-grid,
             .grid-2,
-            .why-me-grid,
             .contact-wrapper {
                 grid-template-columns: 1fr !important;
                 gap: 2.5rem;
+            }
+
+            .why-me-grid {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 1.5rem !important;
+            }
+
+            .why-me-card {
+                padding: 2rem 1.5rem !important;
+                width: 100%;
             }
 
             .about-image {
