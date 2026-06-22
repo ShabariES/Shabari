@@ -1,0 +1,182 @@
+/* Proper Professional Design System */
+:root {
+    --bg: #ffffff;
+    --text: #000000;
+    --muted: #555555;
+    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-main);
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- Presentation Container --- */
+.slides-wrapper {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scrollbar-width: none;
+}
+.slides-wrapper::-webkit-scrollbar { display: none; }
+
+.slide {
+    height: 100vh;
+    width: 100vw;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10%;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+/* --- Fixed Header/Footer (Exact match to screenshots) --- */
+.fixed-ui {
+    position: fixed;
+    width: 100%;
+    padding: 3rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    font-weight: 700;
+    z-index: 100;
+    pointer-events: none;
+    transition: color 0.4s var(--ease);
+}
+.fixed-header { top: 0; }
+.fixed-footer { bottom: 0; }
+
+/* --- Layouts --- */
+.layout-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.img-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.black-accent {
+    position: absolute;
+    background: #000;
+    width: 120px;
+    height: 120px;
+    top: -25px;
+    left: -25px;
+    z-index: -1;
+}
+
+/* --- Typography (Exact match style) --- */
+.title-large {
+    font-size: 7rem;
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    margin-bottom: 2.5rem;
+}
+
+.title-medium {
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 2rem;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--muted);
+    margin-bottom: 3rem;
+}
+
+.paragraph {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.list-item {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+.list-item::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+}
+
+/* --- Slide Specifics --- */
+.hero-text { font-size: 14rem; font-weight: 800; text-transform: uppercase; line-height: 0.8; }
+.hero-outline { font-weight: 400; font-size: 10rem; display: block; margin-top: 1rem; }
+
+.circle-reveal { border-radius: 50% 0 0 50%; height: 600px; overflow: hidden; }
+
+/* --- Theme Support --- */
+.dark-slide { color: #fff; }
+.overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.4); z-index: 1; }
+
+/* Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s var(--ease);
+}
+.visible .reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Progress bar */
+.progress-container {
+    position: fixed;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 200px;
+    width: 2px;
+    background: rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+.progress-bar {
+    width: 100%;
+    height: 0%;
+    background: var(--text);
+    transition: height 0.3s;
+}
+
+@media (max-width: 1024px) {
+    .title-large { font-size: 4rem; }
+    .layout-split { grid-template-columns: 1fr; gap: 3rem; }
+    .img-container { display: none; }
+    .fixed-ui { padding: 1.5rem 2rem; font-size: 0.75rem; }
+}

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kavina M | High-Fidelity Portfolio</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #000000;
+            --muted: #666;
+            --accent: #000;
+            --font-head: 'Inter', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --ease: cubic-bezier(0.85, 0, 0.15, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: var(--font-body);
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- UI Components --- */
+        .header,
+        .footer {
+            position: fixed;
+            width: 100%;
+            padding: 2.5rem 5rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            font-weight: 900;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            z-index: 1000;
+            transition: color 0.6s var(--ease);
+        }
+
+        .header {
+            top: 0;
+        }
+
+        .footer {
+            bottom: 0;
+        }
+
+        /* Progress Bar */
+        .progress-wrap {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(0, 0, 0, 0.05);
+            z-index: 2000;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: var(--text);
+            transition: width 0.3s var(--ease);
+        }
+
+        /* Navigation Pills */
+        .nav-pills {
+            position: fixed;
+            right: 3rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 1000;
+        }
+
+        .nav-pill {
+            width: 12px;
+            height: 12px;
+            border: 2px solid var(--text);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.4s var(--ease);
+        }
+
+        .nav-pill.active {
+            background: var(--text);
+            transform: scale(1.3);
+        }
+
+        /* --- Presentation Slides --- */
+        .slides {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scrollbar-width: none;
+        }
+
+        .slides::-webkit-scrollbar {
+            display: none;
+        }
+
+        .slide {
+            height: 100vh;
+            width: 100vw;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 10%;
+            position: relative;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        /* --- Animations --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1.2s var(--ease);
+        }
+
+        .slide.visible .reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .img-wrap {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            background: #f0f0f0;
+        }
+
+        .img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 2s var(--ease);
+        }
+
+        .slide.visible .img-wrap img {
+            transform: scale(1);
+        }
+
+        .slide:not(.visible) .img-wrap img {
+            transform: scale(1.1);
+        }
+
+        /* Typography */
+        .h1 {
+            font-family: var(--font-head);
+            font-size: 8rem;
+            line-height: 0.9;
+            font-weight: 900;
+            margin-bottom: 2.5rem;
+            letter-spacing: -0.05em;
+        }
+
+        .h1 b {
+            font-weight: 900;
+        }
+
+        .h2 {
+            font-family: var(--font-head);
+            font-size: 6.5rem;
+            line-height: 0.85;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            letter-spacing: -0.05em;
+        }
+
+        .sub {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--muted);
+            margin-bottom: 3.5rem;
+        }
+
+        .p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Layout Specifics */
+        .hero {
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero .h1 {
+            font-size: 15rem;
+            font-weight: 900;
+            line-height: 0.75;
+            letter-spacing: -0.06em;
+        }
+
+        .hero .outline {
+            font-weight: 900;
+            font-size: 15rem;
+            display: block;
+            color: #fff;
+            letter-spacing: -0.06em;
+            margin-top: 0;
+        }
+
+        /* Mobile */
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .img-wrap {
+                display: none;
+            }
+
+            .h1 {
+                font-size: 5rem;
+            }
+
+            .h2 {
+                font-size: 4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <span>Personal Presentation</span>
+        <span id="current-date"></span>
+    </header>
+
+    <div class="progress-wrap">
+        <div class="progress-bar"></div>
+    </div>
+
+    <nav class="nav-pills">
+        <div class="nav-pill active"></div>
+        <div class="nav-pill"></div>
+        <div class="nav-pill"></div>
+        <div class="nav-pill"></div>
+        <div class="nav-pill"></div>
+        <div class="nav-pill"></div>
+        <div class="nav-pill"></div>
+        <div class="nav-pill"></div>
+        <div class="nav-pill"></div>
+    </nav>
+
+    <main class="slides">
+        <!-- 1. INTRO -->
+        <section class="slide" id="s1">
+            <div class="container">
+                <div class="img-wrap reveal" style="aspect-ratio: 0.9/1;">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1200"
+                        alt="Kavina M">
+                </div>
+                <div class="text reveal">
+                    <h1 class="h1">Hello, I'm<br><b>Kavina!</b></h1>
+                    <p class="sub">Aspiring Software Developer | Problem Solver | Tech Explorer</p>
+                    <div class="p">
+                        <p>A passionate Computer Science student focused on building technical skills through practical
+                            learning and real-world experimentation.</p>
+                        <p>Currently building a strong foundation in software development while learning to transform
+                            ideas into impactful digital solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. SKILLS -->
+        <section class="slide" id="s2">
+            <div class="container">
+                <div class="text reveal">
+                    <h2 class="h2">my personal skills</h2>
+                    <p class="p">Driven by curiosity and continuous learning, I am building my technical journey through
+                        exploration and hands-on practice.</p>
+                    <div style="margin-top:2rem;">
+                        <p style="font-weight:900; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:1rem;">
+                            Freelancing Journey</p>
+                        <p class="p">Learning client communication, project delivery, and practical workflows to build
+                            professional experience.</p>
+                    </div>
+                </div>
+                <div class="img-wrap reveal" style="aspect-ratio: 1.2/1;">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=1200"
+                        alt="Skills">
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. EDUCATION -->
+        <section class="slide" id="s3">
+            <div class="container">
+                <div class="img-wrap reveal" style="aspect-ratio: 1/1;">
+                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1200"
+                        alt="Education">
+                </div>
+                <div class="text reveal">
+                    <h2 class="h2">My education</h2>
+                    <p class="sub">Bachelor's in Computer Science (Pursuing)</p>
+                    <hr style="border:none; border-top:1px solid #eee; margin-bottom:2rem;">
+                    <p style="font-size:2rem; font-weight:900; margin-bottom:2rem;">CGPA: 9.0 / 10</p>
+                    <div class="p">
+                        <p><b>Focus:</b> Programming Fundamentals, Analytical Thinking, Problem Solving, Logical
+                            Reasoning, Technical Adaptability.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. WORK EXPERIENCE -->
+        <section class="slide" id="s4">
+            <div class="container">
+                <div class="text reveal">
+                    <p style="font-weight:900; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:1rem;">Hack
+                        Expo Participant!</p>
+                    <h2 class="h2">my work experience</h2>
+                    <p class="p">A defining milestone in my learning journey, this experience introduced me to
+                        real-world software development challenges.</p>
+                </div>
+                <div class="img-wrap reveal" style="aspect-ratio: 0.85/1;">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=1200"
+                        alt="Work">
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. PORTFOLIO COVER -->
+        <section class="slide hero" id="s5">
+            <div style="position:absolute; inset:0; z-index:0;">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200"
+                    alt="Portfolio" style="width:100%; height:100%; object-fit:cover; filter:brightness(0.6);">
+            </div>
+            <div class="slide-content reveal" style="position:relative; z-index:10;">
+                <h2 class="h1" style="font-size: 10rem; font-weight:900;">MY PORTFOLIO<br><span class="outline"
+                        style="font-weight:400; font-size:9rem; -webkit-text-stroke: 2px #fff; color: transparent;"></span>
+                </h2>
+            </div>
+        </section>
+
+        <!-- 6. PROJECTS -->
+        <section class="slide" id="s6">
+            <div class="container" style="grid-template-columns: 0.8fr 1.2fr;">
+                <div class="img-wrap reveal" style="height: 400px;">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200"
+                        alt="Proj 1">
+                </div>
+                <div class="text reveal" style="padding-left: 4rem;">
+                    <h2 class="h2">project portfolio</h2>
+                    <p class="p">I build practical projects to strengthen my coding logic and programming fundamentals
+                        through continuous hands-on learning.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. FIRST PROJECT -->
+        <section class="slide" id="s7">
+            <div class="container">
+                <div class="text reveal">
+                    <h2 class="h2">first project</h2>
+                    <p style="font-weight:900; text-transform:uppercase; margin-bottom:2rem;">Hack Expo Project — My
+                        First Build</p>
+                    <p class="p">This was my first real software project. Even with zero prior experience, I
+                        successfully contributed to project development.</p>
+                </div>
+                <div class="img-wrap reveal" style="border-radius: 50% 0 0 50%; height: 600px;">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80&w=1200"
+                        alt="First Project">
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. CONNECT -->
+        <section class="slide" id="s8">
+            <div class="container">
+                <div class="img-wrap reveal" style="aspect-ratio: 0.9/1;">
+                    <img src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&q=80&w=1200"
+                        alt="Connect">
+                </div>
+                <div class="text reveal">
+                    <h2 class="h2">Let's connect</h2>
+                    <div style="margin-bottom:3rem;">
+                        <p class="p"><b>Email:</b> kavinamuthudurai16@gmail.com</p>
+                        <p class="p"><b>GitHub:</b> kavinamuthudurai16-png</p>
+                    </div>
+                    <p style="font-style:italic; font-weight:900; font-size:1.4rem;">"I don't just learn technology — I
+                        explore, build, and grow with it."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. THANK YOU -->
+        <section class="slide hero" id="s9">
+            <div style="position:absolute; inset:0; z-index:0;">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200"
+                    alt="Thanks" style="width:100%; height:100%; object-fit:cover; filter:brightness(0.4);">
+            </div>
+            <div class="slide-content reveal" style="position:relative; z-index:10;">
+                <h2 class="h1" style="font-size: 11rem; font-weight:900;">thank you so<br>much!</h2>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <span>KAVINA M</span>
+        <span>kavinamuthudurai16@gmail.com</span>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slidesWrap = document.querySelector('.slides');
+            const slides = document.querySelectorAll('.slide');
+            const pills = document.querySelectorAll('.nav-pill');
+            const progressBar = document.querySelector('.progress-bar');
+            const header = document.querySelector('.header');
+            const footer = document.querySelector('.footer');
+            const dateEl = document.getElementById('current-date');
+
+            // 1. Real-time Date
+            const updateDate = () => {
+                const now = new Date();
+                const options = { day: '2-digit', month: 'long', year: 'numeric' };
+                dateEl.textContent = now.toLocaleDateString('en-GB', options).toUpperCase();
+            };
+            updateDate();
+
+            // 2. Real-time Interactions
+            const updateUI = () => {
+                let current = null;
+                let max = 0;
+
+                slides.forEach((slide, i) => {
+                    const rect = slide.getBoundingClientRect();
+                    const visible = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
+                    if (visible > max) { max = visible; current = slide; }
+                    if (rect.top < window.innerHeight * 0.85) slide.classList.add('visible');
+                });
+
+                if (current) {
+                    const idx = Array.from(slides).indexOf(current);
+                    const isDark = current.classList.contains('hero');
+                    const color = isDark ? '#fff' : '#000';
+                    header.style.color = color;
+                    footer.style.color = color;
+
+                    pills.forEach((p, i) => {
+                        p.classList.toggle('active', i === idx);
+                        p.style.borderColor = color;
+                        p.style.background = (i === idx) ? color : 'transparent';
+                    });
+
+                    const progress = (slidesWrap.scrollTop / (slidesWrap.scrollHeight - window.innerHeight)) * 100;
+                    progressBar.style.width = `${progress}%`;
+                }
+            };
+
+            // 3. Real-time Navigation
+            window.addEventListener('keydown', (e) => {
+                const h = window.innerHeight;
+                if (['ArrowDown', 'ArrowRight', ' '].includes(e.key)) {
+                    e.preventDefault();
+                    slidesWrap.scrollBy({ top: h, behavior: 'smooth' });
+                } else if (['ArrowUp', 'ArrowLeft'].includes(e.key)) {
+                    e.preventDefault();
+                    slidesWrap.scrollBy({ top: -h, behavior: 'smooth' });
+                }
+            });
+
+            slidesWrap.addEventListener('scroll', updateUI);
+            updateUI();
+
+            pills.forEach((p, i) => p.addEventListener('click', () => slides[i].scrollIntoView({ behavior: 'smooth' })));
+        });
+    </script>
+</body>
+
+</html>
