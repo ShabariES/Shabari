@@ -2309,6 +2309,26 @@
                 padding-inline: 1.25rem;
             }
 
+            /* Keep the mobile header inside the viewport: the full contact CTA
+               competes with the logo, theme control, and menu on narrow screens. */
+            .nav-actions > .btn-d {
+                display: none;
+            }
+
+            .nav {
+                width: 100%;
+                min-width: 0;
+            }
+
+            .logo-brand {
+                min-width: 0;
+                flex-shrink: 1;
+            }
+
+            .nav-actions {
+                flex: 0 0 auto;
+            }
+
             .section.container {
                 width: 100%;
                 padding-inline: clamp(1rem, 4vw, 1.5rem);
@@ -2593,6 +2613,20 @@
         @media (max-width: 380px) {
             .container {
                 padding-inline: 1rem;
+            }
+
+            .nav-actions {
+                gap: .35rem;
+            }
+
+            .theme-toggle-btn {
+                width: 38px;
+                height: 38px;
+            }
+
+            .menu-toggle i {
+                width: 23px;
+                height: 23px;
             }
 
             .hero-title {
