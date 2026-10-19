@@ -307,15 +307,22 @@
 
         .tech-bg {
             position: fixed;
-            top: 0;
-            left: 0;
+            inset: 0;
             width: 100%;
             height: 100vh;
-            z-index: -1;
+            z-index: 0;
             overflow: hidden;
-            background: #ffffff;
+            background: transparent;
+            pointer-events: none;
         }
 
+        header,
+        main,
+        footer,
+        .whatsapp-float {
+            position: relative;
+            z-index: 1;
+        }
         #ripple-canvas {
             position: fixed;
             top: 0;
@@ -1320,7 +1327,8 @@
             }
         }
     </style>
-    <div id="tech-bg" class="tech-bg"></div>
+    
+    <div id="tech-bg" class="tech-bg" aria-hidden="true"></div>
     <!-- Header / Navigation -->
     <header class="header">
         <nav class="nav container">
@@ -1343,6 +1351,7 @@
     <main>
         <!-- Hero Section -->
         <section id="home" class="hero section">
+
             <div class="container hero-content">
                 <h2 class="hero-tagline" data-aos="fade-up">MERN STACK DEVELOPER & UI/UX DEVELOPER</h2>
                 <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
