@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Render one lightweight network background behind the full portfolio.
     // The static CSS artwork remains visible if WebGL is unavailable or motion is reduced.
-    const vantaHost = document.getElementById('vanta-bg');
+    const vantaHost = document.getElementById('tech-bg');
     const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
     if (vantaHost && window.VANTA?.NET && window.THREE && !prefersReducedMotion) {
         try {
@@ -16,12 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 minWidth: 200,
                 scale: 1,
                 scaleMobile: 0.8,
-                color: 0x0a0a0d,
-                backgroundColor: 0xf2f2f4,
+                color: 0xe65100,
+                backgroundColor: 0xffffff,
                 backgroundAlpha: 0,
-                points: 9,
-                maxDistance: 18,
-                spacing: 27,
+                points: 12,
+                maxDistance: 22,
+                spacing: 24,
                 showDots: true
             });
         } catch (error) {
