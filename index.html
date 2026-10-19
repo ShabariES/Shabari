@@ -2309,6 +2309,11 @@
                 padding-inline: 1.25rem;
             }
 
+            .section.container {
+                width: 100%;
+                padding-inline: clamp(1rem, 4vw, 1.5rem);
+            }
+
             .nav {
                 height: 68px;
             }
@@ -2468,6 +2473,12 @@
                 gap: 1rem;
             }
 
+            .portfolio-grid,
+            .project-card {
+                width: 100%;
+                min-width: 0;
+            }
+
             .pi-wrap {
                 height: auto;
                 aspect-ratio: 16 / 10;
@@ -2478,6 +2489,24 @@
             .exp-card,
             .edu-card {
                 padding: 1.35rem;
+            }
+
+            .ph {
+                gap: .65rem;
+            }
+
+            .ptitle {
+                min-width: 0;
+                flex: 1 1 auto;
+                font-size: clamp(1.05rem, 5vw, 1.3rem);
+                overflow-wrap: anywhere;
+            }
+
+            .project-link-label,
+            .project-kind {
+                max-width: 42%;
+                white-space: normal;
+                text-align: right;
             }
 
             .about-card,
