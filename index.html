@@ -2330,7 +2330,11 @@
             }
 
             .section.container {
-                width: 100%;
+                /* Sections must follow the device viewport, not a narrower
+                   containing block that can leave an empty strip on the right. */
+                width: 100vw;
+                max-width: none;
+                margin-inline: 0;
                 padding-inline: clamp(1rem, 4vw, 1.5rem);
             }
 
@@ -2365,7 +2369,7 @@
 
             .hero {
                 min-height: auto;
-                padding: 82px 0 28px;
+                padding: 82px 0 12px;
             }
 
             .hero-layout {
@@ -2453,6 +2457,10 @@
 
             .section {
                 padding: 68px 0;
+            }
+
+            #portfolio.section {
+                padding-top: 36px;
             }
 
             .section::after {
