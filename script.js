@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 backgroundColor: 0xf2f2f4,
                 backgroundAlpha: 0,
                 points: 9,
-                maxDistance: 22,
-                spacing: 19,
+                maxDistance: 18,
+                spacing: 27,
                 showDots: true
             });
         } catch (error) {

@@ -166,7 +166,7 @@
             inset: 0;
             z-index: -1;
             overflow: hidden;
-            opacity: .78;
+            opacity: .22;
             pointer-events: none;
         }
 
@@ -2354,11 +2354,21 @@
             }
 
             .stats-row {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
                 width: 100%;
-                justify-content: center;
-                gap: clamp(1.25rem, 7vw, 2.25rem);
+                max-width: 34rem;
+                justify-content: initial;
+                align-items: start;
+                gap: .75rem;
                 margin-bottom: 1.7rem;
                 padding-bottom: 1.35rem;
+            }
+
+            .stat-item-wrap {
+                min-width: 0;
+                align-items: center;
+                text-align: center;
             }
 
             .stat-num {
@@ -2366,15 +2376,21 @@
             }
 
             .stat-lbl {
-                max-width: 130px;
-                font-size: .7rem;
+                max-width: none;
+                white-space: nowrap;
+                font-size: clamp(.63rem, 2.35vw, .72rem);
             }
 
             .hero-sub {
                 max-width: 34rem;
                 margin-bottom: 1.5rem;
-                text-align: left;
+                display: block;
+                text-align: center;
                 font-size: .98rem;
+            }
+
+            .hero-sub .dash {
+                display: none;
             }
 
             .hero-r {
@@ -2519,6 +2535,11 @@
                 overflow-wrap: anywhere;
                 font-size: .87rem;
                 padding: .75rem .85rem;
+            }
+
+            .direct-email span {
+                min-width: 0;
+                overflow-wrap: anywhere;
             }
 
             .footer {
